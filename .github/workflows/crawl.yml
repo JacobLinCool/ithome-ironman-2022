@@ -17,6 +17,7 @@ jobs:
               with:
                   ref: data
                   path: data
+              continue-on-error: true
 
             - name: Setup PNPM
               uses: pnpm/action-setup@v2.2.2
