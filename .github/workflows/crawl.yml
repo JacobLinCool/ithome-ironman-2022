@@ -1,0 +1,36 @@
+name: Crawl Data
+
+on:
+    schedule:
+        - cron: "0 20 * * *"
+    workflow_dispatch:
+
+jobs:
+    crawl:
+        name: Crawl Data
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Checkout Data Branch
+              uses: actions/checkout@v3
+              with:
+                  ref: data
+                  path: data
+
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v2.2.2
+              with:
+                  version: latest
+                  run-install: true
+
+            - name: Crawl
+              run: pnpm tsx src/crawler.ts
+
+            - name: Push Data
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN  }}
+                  publish_dir: "./data"
+                  publish_branch: "data"
+                  keep_files: true

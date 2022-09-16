@@ -1,0 +1,25 @@
+{
+    "private": true,
+    "name": "ithome-ironman-2022",
+    "version": "0.1.0",
+    "description": "",
+    "keywords": [],
+    "author": "JacobLinCool <jacoblincool@gmail.com> (https://github.com/JacobLinCool)",
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "crawl": "tsx src/crawler.ts",
+        "diff": "tsx src/diff.ts"
+    },
+    "dependencies": {
+        "jsdom": "^20.0.0",
+        "node-fetch": "^2.6.7",
+        "ora": "^5.4.1"
+    },
+    "devDependencies": {
+        "@types/jsdom": "^20.0.0",
+        "@types/node-fetch": "^2.6.2",
+        "tsx": "^3.9.0",
+        "typescript": "^4.8.3"
+    }
+}
