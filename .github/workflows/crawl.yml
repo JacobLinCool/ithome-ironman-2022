@@ -23,7 +23,9 @@ jobs:
               uses: pnpm/action-setup@v2.2.2
               with:
                   version: latest
-                  run-install: true
+
+            - name: Install Dependencies
+              run: pnpm install
 
             - name: Crawl
               run: pnpm tsx src/crawler.ts
